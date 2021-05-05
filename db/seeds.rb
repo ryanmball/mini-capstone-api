@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Product.create(name: "Mammut Inifinity Dry 9.5", price: "280", image_url: "", description: "rope")
+Product.create(name: "BD Hyrbrid Quickdraw", price: "18", image_url: "", description: "quickdraw")
+Product.create(name: "BD Camalot C4 0.75", price: "70", image_url: "", description: "cam")
+Product.create(name: "BD Solution Harness", price: "110", image_url: "", description: "harness")
+Product.create(name: "Petzl WILLIAM Carabiner", price: "22", image_url: "", description: "carabiner")
