@@ -12,9 +12,9 @@ display_products.each do |product|
   puts "ID: #{id}, Name: #{name}"
 end
 
-puts "Please enter the ID of the product you would like to display"
-id = gets.chomp.to_i
+# puts "Please enter the ID of the product you would like to display"
+# id = gets.chomp.to_i
 
-product = HTTP.get("http://localhost:3000/display_product?id=#{id}")
+# product = HTTP.get("http://localhost:3000/display_product?id=#{id}")
 
-p product.parse
+# p product.parse
