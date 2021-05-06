@@ -1,5 +1,9 @@
 class ProductsController < ApplicationController
-  def individual_product
-    render json: Product.first.as_json
+  def display_all_products
+    render json: Product.all.as_json
+  end
+  
+  def display_product
+    render json: Product.find(params[:id]).as_json
   end
 end
