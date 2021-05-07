@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   get "display_all_products" => "products#display_all_products"
   
   get "display_product" => "products#display_product"
+
+  get "display_product/:id" => "products#display_product"
 end

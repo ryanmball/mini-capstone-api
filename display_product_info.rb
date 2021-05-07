@@ -1,7 +1,7 @@
 require "http"
 
 products = HTTP.get("http://localhost:3000/display_all_products")
-# p products.parse
+# pp products.parse
 # p products.parse[0].values_at("id", "name")
 display_products = []
 products.parse.each { |product| display_products << product.values_at("id", "name")}
@@ -15,6 +15,7 @@ end
 puts "Please enter the ID of the product you would like to display"
 id = gets.chomp.to_i
 
-product = HTTP.get("http://localhost:3000/display_product?id=#{id}")
+product = HTTP.get("http://localhost:3000/display_product/#{id}")
 
-p product.parse
+pp product.parse
+#FIGURE OUT HOW TO DROP CREATED INFO

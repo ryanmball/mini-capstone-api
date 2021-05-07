@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def display_all_products
-    render json: Product.all.as_json
+    render json: Product.all.sort_by { |product| product[:id] }.as_json
   end
   
   def display_product
