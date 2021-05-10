@@ -7,4 +7,6 @@ Rails.application.routes.draw do
 
   get "products/:id" => "products#show"
   # displays a single product based on an id number passed through a url segment param
+
+  patch "products/:id" => "products#update"
 end
