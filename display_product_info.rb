@@ -35,12 +35,32 @@ if answer == "Y"
   new_product = HTTP.post("http://localhost:3000/products", :params => {:name => name, :price => price, :image_url => image_url, :description => description})
 end
 
-# puts "Would you like to update attributes for any product? Enter Y/N"
+puts "Would you like to update attributes for any product? Enter Y/N"
 
-# answer = gets.chomp.upcase
-# if answer == "Y"
-#   puts "Please enter the ID of the product that you would like to update:"
-#   id = gets.chomp.to_i
+answer = gets.chomp.upcase
+if answer == "Y"
+  puts "Please enter the ID of the product that you would like to update:"
+  id = gets.chomp.to_i
+  puts "Enter new values for each attribute, or leave blank if you do not wish to change that attribute"
+  puts "Name:"
+  name = gets.chomp
+  puts "Price:"
+  price = gets.chomp.to_i
+  puts "Image URL:"
+  image_url = gets.chomp
+  puts "Description:"
+  description = gets.chomp
 
-#   update_product = HTTP.patch("http://localhost:3000/#{id}", :params => {:name => name || :name => update_product.name, :price => price || :price => update_product.price, :image_url => image_url || :image_url => update_product.image_url, :description => description || :description => update_product.description})
-# end
+  update_product = HTTP.patch("http://localhost:3000/products/#{id}", :params => {:name => name, :price => price, :image_url => image_url, :description => description})
+  p update_product.parse
+end
+
+puts "Would you like to delete a product? Enter Y/N"
+
+answer = gets.chomp.upcase
+if answer == "Y"
+  puts "Please enter the ID of the product that you would like to destory:"
+  id = gets.chomp.to_i
+
+  HTTP.delete("http://localhost:3000/products/#{id}")
+end
