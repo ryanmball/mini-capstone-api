@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   # displays a single product based on an id number passed through a url segment param
 
   patch "products/:id" => "products#update"
+  # patch request to update attributes for a selected product
+
+  delete "products/:id" => "products#destroy"
+  # delete request to delete the instance of Product for a selected product id
 end

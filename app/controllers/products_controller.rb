@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   def index
     render json: Product.all.sort_by { |product| product[:id] }.as_json
   end
-
+  
   def create
     product = Product.new(
       name: params[:name],
@@ -26,5 +26,14 @@ class ProductsController < ApplicationController
     product.description = params[:description] || product.description
     product.save
     render json: product.as_json
+  end
+  
+  def destroy
+    product = Product.find(params[:id])
+    product.destroy
+    render json: {
+      message: "Product successfully destroyed!",
+      products: Product.all.sort_by { |product| product[:id] }.as_json
+    }
   end
 end

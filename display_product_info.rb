@@ -34,3 +34,13 @@ if answer == "Y"
 
   new_product = HTTP.post("http://localhost:3000/products", :params => {:name => name, :price => price, :image_url => image_url, :description => description})
 end
+
+# puts "Would you like to update attributes for any product? Enter Y/N"
+
+# answer = gets.chomp.upcase
+# if answer == "Y"
+#   puts "Please enter the ID of the product that you would like to update:"
+#   id = gets.chomp.to_i
+
+#   update_product = HTTP.patch("http://localhost:3000/#{id}", :params => {:name => name || :name => update_product.name, :price => price || :price => update_product.price, :image_url => image_url || :image_url => update_product.image_url, :description => description || :description => update_product.description})
+# end
