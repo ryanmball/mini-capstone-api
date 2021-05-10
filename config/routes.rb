@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  get "display_all_products" => "products#display_all_products"
+  get "products" => "products#index"
+  # diplays all products sorted by index number
   
-  get "display_product" => "products#display_product"
-
-  get "display_product/:id" => "products#display_product"
+  get "products/:id" => "products#show"
+  # displays a single product based on an id number passed through a url segment param
 end
