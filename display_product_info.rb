@@ -18,4 +18,19 @@ id = gets.chomp.to_i
 product = HTTP.get("http://localhost:3000/products/#{id}")
 
 pp product.parse
-#FIGURE OUT HOW TO DROP CREATED INFO
+
+puts "Would you like to add another product to the database? Enter Y/N"
+
+answer = gets.chomp.upcase
+if answer == "Y"
+  puts "Name:"
+  name = gets.chomp
+  puts "Price:"
+  price = gets.chomp.to_i
+  puts "Image URL:"
+  image_url = gets.chomp
+  puts "Description:"
+  description = gets.chomp
+
+  new_product = HTTP.post("http://localhost:3000/products", :params => {:name => name, :price => price, :image_url => image_url, :description => description})
+end
