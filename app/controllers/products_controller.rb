@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    render json: Product.all.sort_by { |product| product[:id] }.as_json
+    render json: Product.all.sort_by { |product| product[:id] }
   end
   
   def create
@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
   end
   
   def show
-    render json: Product.find(params[:id]).as_json
+    render json: Product.find(params[:id])
   end
   
   def update
