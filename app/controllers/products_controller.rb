@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
       description: params[:description]
     )
     product.save
-    render json: product.as_json
+    render json: product
   end
   
   def show
@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
     product.image_url = params[:image_url] || product.image_url
     product.description = params[:description] || product.description
     product.save
-    render json: product.as_json
+    render json: product
   end
   
   def destroy
@@ -33,7 +33,7 @@ class ProductsController < ApplicationController
     product.destroy
     render json: {
       message: "Product successfully destroyed!",
-      products: Product.all.sort_by { |product| product[:id] }.as_json
+      products: Product.all.sort_by { |product| product[:id] }
     }
   end
 end
