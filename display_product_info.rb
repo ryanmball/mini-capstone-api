@@ -31,8 +31,10 @@ if answer == "Y"
   image_url = gets.chomp
   puts "Description:"
   description = gets.chomp
+  puts "Inventory:"
+  inventory = gets.chomp
 
-  new_product = HTTP.post("http://localhost:3000/products", :params => {:name => name, :price => price, :image_url => image_url, :description => description})
+  new_product = HTTP.post("http://localhost:3000/products", :params => {:name => name, :price => price, :image_url => image_url, :description => description, :inventory => inventory})
 end
 
 puts "Would you like to update attributes for any product? Enter Y/N"
@@ -50,8 +52,10 @@ if answer == "Y"
   image_url = gets.chomp
   puts "Description:"
   description = gets.chomp
+  puts "Inventory:"
+  inventory = gets.chomp
 
-  update_product = HTTP.patch("http://localhost:3000/products/#{id}", :params => {:name => name, :price => price, :image_url => image_url, :description => description})
+  update_product = HTTP.patch("http://localhost:3000/products/#{id}", :params => {:name => name, :price => price, :image_url => image_url, :description => description, :inventory => inventory})
   p update_product.parse
 end
 
