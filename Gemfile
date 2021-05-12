@@ -40,3 +40,4 @@ gem "tty-table"
 
 gem 'active_model_serializers', '~> 0.10.0'
 
+gem 'seed_dump'
