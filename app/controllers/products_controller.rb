@@ -11,8 +11,11 @@ class ProductsController < ApplicationController
       description: params[:description],
       inventory: params[:inventory]
     )
-    product.save
-    render json: product
+    if product.save
+      render json: product    # HAPPY PATH
+    else
+      render json: { errors: product.errors.full_messages }, status: 422   # SAD PATH
+    end
   end
   
   def show
@@ -26,8 +29,11 @@ class ProductsController < ApplicationController
     product.image_url = params[:image_url] || product.image_url
     product.description = params[:description] || product.description
     product.inventory = params[:inventory] || product.inventory
-    product.save
-    render json: product
+    if product.save
+      render json: product    # HAPPY PATH
+    else
+      render json: { errors: product.errors.full_messages }, status: 422    # SAD PATH
+    end
   end
   
   def destroy
