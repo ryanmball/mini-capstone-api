@@ -1,6 +1,16 @@
 class ProductsController < ApplicationController
   def index
-    render json: Product.all.sort_by { |product| product[:id] }
+    products = Product.all.order(:id)
+    if params[:search]
+      products = Product.where("name iLIKE ?", "%#{params[:search]}%").order(:id)
+    end
+    if params[:search] == "asc"
+      products = Product.all.order(:price)
+    end
+    if params[:search] == "desc"
+      products = Product.all.order(price: :desc)
+    end
+    render json: products
   end
   
   def create
@@ -41,7 +51,7 @@ class ProductsController < ApplicationController
     product.destroy
     render json: {
       message: "Product successfully destroyed!",
-      products: Product.all.sort_by { |product| product[:id] }
+      products: Product.all.order(:id)
     }
   end
 end
