@@ -16,4 +16,9 @@ class Product < ApplicationRecord
   def total
     tax + price
   end
+
+  scope :price_asc, ->(price) { order("price") if price == "asc"}
+  scope :price_desc, ->(price) { order("price desc") if price == "desc"}
+  scope :name_contains, ->(search) { where("name iLike ?", "%#{search}%") }
+  scope :discounted, ->(discount) { where("price < ?", "50") if discount == "true" }
 end

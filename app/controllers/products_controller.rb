@@ -1,15 +1,8 @@
 class ProductsController < ApplicationController
   def index
-    products = Product.all.order(:id)
-    if params[:search]
-      products = Product.where("name iLIKE ?", "%#{params[:search]}%").order(:id)
-    end
-    if params[:search] == "asc"
-      products = Product.all.order(:price)
-    end
-    if params[:search] == "desc"
-      products = Product.all.order(price: :desc)
-    end
+    products = Product.all.price_asc(params[:price]).price_desc(params[:price]).name_contains(params[:search]).discounted(params[:discount]).order(:id)
+    # uses scopes for price asc, price desc, name contains, and is discounted?
+    # any combination of these query params seems to work and not break the code - this is really cool
     render json: products
   end
   
