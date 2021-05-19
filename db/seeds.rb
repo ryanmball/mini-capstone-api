@@ -13,8 +13,22 @@
 #   {name: "Backcountry X Metolius Party Pit 2.0", price: "169.95", image_url: "https://content.backcountry.com/images/items/900/BCC/BCCZ2AL/BUBROLNI.jpg", description: "crash pad", in_stock: true, inventory: 10}
 # ])
 
-Supplier.create! ([
-  {name: "Black Diamond", email: "blackdiamond@bd.com", phone_number: "789-455-8552"},
-  {name: "Backcountry", email: "orders@backcountry.com", phone_number: "445-887-1224"},
-  {name: "Mammut", email: "climbing@mammut.com", phone_number: "303-887-1244"},
+# Supplier.create! ([
+#   {name: "Black Diamond", email: "blackdiamond@bd.com", phone_number: "789-455-8552"},
+#   {name: "Backcountry", email: "orders@backcountry.com", phone_number: "445-887-1224"},
+#   {name: "Mammut", email: "climbing@mammut.com", phone_number: "303-887-1244"},
+# ])
+
+Image.create!([
+  {url: "https://content.backcountry.com/images/items/900/BLD/BLDZ97J/STOBLU.jpg", product_id: 8},
+  {url: "https://content.backcountry.com/images/items/900/BLD/BLDZ9EO/ASTBLU.jpg", product_id: 7},
+  {url: "https://content.backcountry.com/images/items/900/BLD/BLD00I0/BLA.jpg", product_id: 4},
+  {url: "https://content.backcountry.com/images/items/900/TRG/TRG000S/COMGRE.jpg",product_id: 10},
+  {url: "https://content.backcountry.com/images/items/900/BCC/BCCZ21L/BURBRI.jpg",product_id: 9},
+  {url: "https://content.backcountry.com/images/items/900/FVT/FVT004A/NTCAROR.jpg", product_id: 11},
+  {url: "https://content.backcountry.com/images/items/900/PTZ/PTZ008V/BL.jpg", product_id: 6},
+  {url: "https://content.backcountry.com/images/items/900/MAM/MAMU51G/PINZEN.jpg", product_id: 1},
+  {url: "https://content.backcountry.com/images/items/900/BLD/BLDZ96U/ULTPIN.jpg", product_id: 2},
+  {url: "https://content.backcountry.com/images/items/900/BLD/BLDZ97M/S075.jpg", product_id: 3},
+  {url: "https://content.backcountry.com/images/items/900/WDC/WDC000P/OR.jpg", product_id: 16},
 ])
