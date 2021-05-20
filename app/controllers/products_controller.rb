@@ -11,9 +11,16 @@ class ProductsController < ApplicationController
       name: params[:name],
       price: params[:price],
       description: params[:description],
-      inventory: params[:inventory]
+      inventory: params[:inventory],
+      supplier_id: params[:supplier_id]
     )
     if product.save
+      if params[:url]
+        Image.create(
+        url: params[:url],
+        product_id: product.id
+        )
+      end
       render json: product    # HAPPY PATH
     else
       render json: { errors: product.errors.full_messages }, status: 422   # SAD PATH
