@@ -28,4 +28,6 @@ Rails.application.routes.draw do
 
   delete "suppliers/:id" => "suppliers#destroy"
   # delete request to delete the instance of Product for a selected product id
+
+  post "images" => "images#create"
 end
