@@ -1,4 +1,8 @@
 class ImagesController < ApplicationController
+  def index
+    render json: Image.all.order(:id)
+  end
+  
   def create
     image = Image.new(
       url: params[:url],

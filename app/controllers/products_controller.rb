@@ -17,8 +17,8 @@ class ProductsController < ApplicationController
     if product.save
       if params[:url]
         Image.create(
-        url: params[:url],
-        product_id: product.id
+          url: params[:url],
+          product_id: product.id
         )
       end
       render json: product    # HAPPY PATH
