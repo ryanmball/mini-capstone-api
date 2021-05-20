@@ -1,6 +1,10 @@
 class SuppliersController < ApplicationController
   def index
-    render json: Supplier.all.order(:id)
+    if current_user
+      render json: Supplier.all.order(:id)
+    else
+      render json: {}, status: :unauthorized
+    end
   end
 
   def create
