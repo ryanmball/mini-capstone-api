@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   def index
     if current_user
-      render json: Order.where("user_id = #{current_user.id}")
+      render json: current_user.orders
     else
       render json: {}, status: :unauthorized
     end
@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    render json: Order.find(params[:id])
+    render json: current_user.orders.find(params[:id])
   end
 
   def destroy
