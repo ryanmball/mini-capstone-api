@@ -28,4 +28,10 @@ class OrdersController < ApplicationController
   def show
     render json: Order.find(params[:id])
   end
+
+  def destroy
+    order = Order.find(params[:id])
+    order.destroy
+    render json: { message: "Order successfully destroyed!" }
+  end
 end
