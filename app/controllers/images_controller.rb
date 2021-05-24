@@ -1,4 +1,7 @@
 class ImagesController < ApplicationController
+  
+  before_action :authenticate_admin
+
   def index
     render json: Image.all.order(:id)
   end

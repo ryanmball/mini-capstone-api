@@ -1,10 +1,9 @@
 class SuppliersController < ApplicationController
+
+  before_action :authenticate_admin
+
   def index
-    if current_user
-      render json: Supplier.all.order(:id)
-    else
-      render json: {}, status: :unauthorized
-    end
+    render json: Supplier.all.order(:id)
   end
 
   def create
