@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
 
   before_action :authenticate_user
+  before_action :authenticate_admin, except: [:index, :create, :show]
 
   def index
     render json: current_user.orders

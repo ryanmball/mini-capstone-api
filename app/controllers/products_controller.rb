@@ -1,4 +1,7 @@
 class ProductsController < ApplicationController
+
+  before_action :authenticate_admin, except: [:index, :show]
+  
   def index
     products = Product.all.price_asc(params[:price]).price_desc(params[:price]).name_contains(params[:search]).discounted(params[:discount]).order(:id)
     # uses scopes for price asc, price desc, name contains, and is discounted?
