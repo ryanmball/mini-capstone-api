@@ -53,6 +53,8 @@ Category.create!([
   {name: "Ropes"},
   {name: "Protection"},
   {name: "Footwear"},
-  {name: "Training"}
+  {name: "Training"},
+  {name: "Climbing Shoes"},
+  {name: "Approach Shoes"},
 ]
 )
