@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
-  
-  before_action :authenticate_admin
+
+  before_action :authenticate_admin, except: [:index]
 
   def index
     render json: Image.all.order(:id)
