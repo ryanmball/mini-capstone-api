@@ -9,10 +9,6 @@ class Product < ApplicationRecord
     supplier.name
   end
 
-  # def image_urls
-  #   images.map { |image| image[:url] }
-  # end
-
   validates :name, presence: true, uniqueness: true
   validates :price, numericality: { greater_than: 0 }
   validates :description, length: { in: 1..500 }
