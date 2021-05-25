@@ -7,17 +7,15 @@ class OrdersController < ApplicationController
     render json: current_user.orders
   end
 
-  def create
+  def create     # THIS IS REALLY MESSY - there has to be a better way to do this
     order = Order.new(
       user_id: current_user.id,
-      product_id: params[:product_id],
-      quantity: params[:quantity]
+      subtotal: current_user.calc_subtotal,
+      tax: current_user.calc_subtotal * 0.09,
+      total: (current_user.calc_subtotal + current_user.calc_subtotal * 0.09)
     )
     order.save
-    order.subtotal = order.calc_subtotal
-    order.tax = order.calc_tax
-    order.total = order.calc_total
-    order.save
+    current_user.carted_products.update_all(status: "purchased", order_id: order.id)
     render json: order
   end
 
