@@ -1,0 +1,7 @@
+1. create CartedProduct model (status default = carted)
+2. db:migrate
+3. create associations between User, Product, Order and CartedProduct based on Shopping Cart Schema spreadsheet
+4. remove product_id and quantity columns from Order model
+5. create a shopping cart controller (carts)
+6. create route and controller method to add a product to carted_product => user passes product_id and quantity
+7. test in Insomnia
