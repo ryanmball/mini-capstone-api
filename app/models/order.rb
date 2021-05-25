@@ -13,4 +13,8 @@ class Order < ApplicationRecord
   def calc_total
     subtotal + tax
   end
+
+  def user_id
+    user.id
+  end
 end
