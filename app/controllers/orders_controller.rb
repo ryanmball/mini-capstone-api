@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   before_action :authenticate_admin, except: [:index, :create, :show]
 
   def index
-    render json: current_user.orders
+    render json: current_user.orders, include: 'carted_products.product'
   end
 
   def create     # THIS IS REALLY MESSY - there has to be a better way to do this (methods in Order model?)
