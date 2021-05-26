@@ -24,9 +24,8 @@ class CartedProductsController < ApplicationController
   end
 
   def destroy
-    carted_product = CartedProduct.find(params[:id])
-    carted_product.status = "deleted"
-    carted_product.save
+    carted_product = current_user.carted_products.where(status: "carted").find(params[:id])
+    carted_product.update(status: "deleted")
     render json: { message: "Product successfully removed from cart" }
   end
 end
