@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
       total: (current_user.calc_subtotal + current_user.calc_subtotal * 0.09)
     )
     order.save
-    current_user.carted_products.update_all(status: "purchased", order_id: order.id)
+    current_user.carted_products.where(status: "carted").update_all(status: "purchased", order_id: order.id)
     render json: order
   end
 

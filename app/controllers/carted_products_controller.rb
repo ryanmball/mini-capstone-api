@@ -16,8 +16,11 @@ class CartedProductsController < ApplicationController
       product_id: params[:product_id],
       quantity: params[:quantity],
     )
-    carted_product.save
-    render json: carted_product
+    if carted_product.save
+      render json: carted_product
+    else
+      render json: { errors: carted_product.errors.full_messages }, status: :unprocessable_entity
+    end
   end
 
   def destroy
